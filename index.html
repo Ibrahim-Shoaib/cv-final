@@ -207,15 +207,23 @@
         </table>
       </div>
     </div>
-    <hr data-aos="fade-up">
-    <div class="center-link">
-      <h3><a href="My CV.pdf" download="Muhammad_Ibrahim_Shoaib_CV.pdf">Download CV as PDF</a></h3>
-    </div>
-  </div>
+  <hr data-aos="fade-up">
+  <a href="My CV.pdf" download="Muhammad_Ibrahim_Shoaib_CV.pdf" id="download-link">Download CV as PDF</a>
+  <p id="thank-you-note" style="display: none;">Thank you for considering my CV. It has been downloaded.</p>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     AOS.init();
+
+    // Add a click event handler to show the thank-you note after downloading
+    const downloadLink = document.getElementById('download-link');
+    const thankYouNote = document.getElementById('thank-you-note');
+
+    downloadLink.addEventListener('click', () => {
+      // Show the thank-you note and hide the download link
+      downloadLink.style.display = 'none';
+      thankYouNote.style.display = 'block';
+    });
   </script>
 
 </body>
