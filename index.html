@@ -87,6 +87,18 @@
       }
     }
 
+    /* CSS for styling the "Destroy CV" button */
+    .destroy-button {
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+
   </style>
   <link rel="icon" type="image/png" href="Ibrahim Image.png" sizes="16x16">
 </head>
@@ -233,7 +245,7 @@
   </a>
   <p id="thank-you-note" style="display: none;">Thank you for considering my CV. It has been downloaded.</p>
 
-  <button id="destroy-button">Destroy CV</button>
+  <button id="destroy-button" class="destroy-button">Destroy CV</button>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
@@ -271,6 +283,7 @@
       // Optional: You can display a message after the animation is complete
       setTimeout(() => {
         const thankYouNote = document.getElementById('thank-you-note');
+        thankYouNote.textContent = 'Thank you for considering my CV;
         thankYouNote.style.display = 'block';
       }, 2000); // Adjust the timeout based on your animation duration
     });
