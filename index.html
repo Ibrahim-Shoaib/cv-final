@@ -73,16 +73,17 @@
       animation-duration: 2s;
       animation-timing-function: ease-in-out;
       animation-fill-mode: forwards;
+      transform-origin: center; /* Set the transform origin to the center */
     }
     
     @keyframes fallAnimation {
       0% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(0deg); /* Initial position and rotation */
         opacity: 1;
       }
       100% {
-        transform: translateY(100vh); /* Move the text to the bottom of the viewport */
-        opacity: 0; /* Fade out the text */
+        transform: translateY(100vh) rotate(360deg); /* Move to bottom with a full rotation */
+        opacity: 0; /* Fade out the element */
       }
     }
 
@@ -245,24 +246,35 @@
       downloadLink.style.display = 'none';
       thankYouNote.style.display = 'block';
     });
-      const destroyButton = document.getElementById('destroy-button');
-  const sectionsToAnimate = document.querySelectorAll('.section');
 
-  destroyButton.addEventListener('click', () => {
-    // Add the 'fall' class to all sections for the falling animation
-    sectionsToAnimate.forEach((section) => {
-      section.classList.add('fall');
+    
+    const destroyButton = document.getElementById('destroy-button');
+    const sectionsToAnimate = document.querySelectorAll('.section');
+    const imageToAnimate = document.querySelector('header img');
+    const hrToAnimate = document.querySelector('hr');
+  
+    destroyButton.addEventListener('click', () => {
+      // Add the 'fall' class to all sections for the falling animation
+      sectionsToAnimate.forEach((section) => {
+        section.classList.add('fall');
+      });
+  
+      // Add the 'fall' class to the image for the falling animation
+      imageToAnimate.classList.add('fall');
+  
+      // Add the 'fall' class to the hr element for the falling animation
+      hrToAnimate.classList.add('fall');
+  
+      // Hide the button after clicking
+      destroyButton.style.display = 'none';
+  
+      // Optional: You can display a message after the animation is complete
+      setTimeout(() => {
+        const thankYouNote = document.getElementById('thank-you-note');
+        thankYouNote.style.display = 'block';
+      }, 2000); // Adjust the timeout based on your animation duration
     });
 
-    // Hide the button after clicking
-    destroyButton.style.display = 'none';
-
-    // Optional: You can display a message after the animation is complete
-    setTimeout(() => {
-      const thankYouNote = document.getElementById('thank-you-note');
-      thankYouNote.style.display = 'block';
-    }, 2000); // Adjust the timeout based on your animation duration
-  });
   </script>
 </body>
 </html>
