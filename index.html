@@ -260,52 +260,43 @@
   <script>
     AOS.init();
 
-    const downloadLink = document.getElementById('center-link');
-    const thankYouNote = document.getElementById('thank-you-note');
+    const downloadButton = document.getElementById('download-button');
 
-    downloadLink.addEventListener('click', () => {
-      downloadLink.style.display = 'none';
+    downloadButton.addEventListener('click', () => {
+      // Change the window location to the PDF file URL
+      window.location.href = 'My CV.pdf';
+
+      // Display the "Thank you" message
+      const thankYouNote = document.getElementById('thank-you-note');
       thankYouNote.style.display = 'block';
     });
 
-    
     const destroyButton = document.getElementById('destroy-button');
     const sectionsToAnimate = document.querySelectorAll('.section');
     const imageToAnimate = document.querySelector('header img');
     const hrToAnimate = document.querySelector('hr');
-  
+
     destroyButton.addEventListener('click', () => {
       // Add the 'fall' class to all sections for the falling animation
       sectionsToAnimate.forEach((section) => {
         section.classList.add('fall');
       });
-  
+
       // Add the 'fall' class to the image for the falling animation
       imageToAnimate.classList.add('fall');
-  
+
       // Add the 'fall' class to the hr element for the falling animation
       hrToAnimate.classList.add('fall');
-  
+
       // Hide the button after clicking
       destroyButton.style.display = 'none';
-  
+
       // Optional: You can display a message after the animation is complete
       setTimeout(() => {
         const thankYouNote = document.getElementById('thank-you-note');
         thankYouNote.textContent = 'Thank you for considering my CV';
         thankYouNote.style.display = 'block';
       }, 2000);
-    });
-    
-    const downloadButton = document.getElementById('download-button');
-    const thankYouNote = document.getElementById('thank-you-note');
-  
-    downloadButton.addEventListener('click', () => {
-      // Change the window location to the PDF file URL
-      window.location.href = 'My CV.pdf';
-  
-      // Display the "Thank you" message
-      thankYouNote.style.display = 'block';
     });
   </script>
 </body>
