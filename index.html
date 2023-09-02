@@ -97,7 +97,17 @@
       font-size: 16px;
       cursor: pointer;
     }
-
+    /* CSS for styling the "Download CV as PDF" button */
+    .download-button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px; /* Add some margin for spacing */
+    }
 
   </style>
   <link rel="icon" type="image/png" href="Ibrahim Image.png" sizes="16x16">
@@ -240,9 +250,8 @@
       </div>
     </div>
   <hr data-aos="fade-up">
-  <a href="My CV.pdf" download="Muhammad_Ibrahim_Shoaib_CV.pdf">
-    <h3><span id="center-link">Download CV as PDF</span></h3>
-  </a>
+
+  <button id="download-button" class="download-button">Download CV as PDF</button>
   <p id="thank-you-note" style="display: none;">Thank you for considering my CV. It has been downloaded.</p>
 
   <button id="destroy-button" class="destroy-button">Destroy CV</button>
@@ -287,7 +296,17 @@
         thankYouNote.style.display = 'block';
       }, 2000);
     });
-
+    
+    const downloadButton = document.getElementById('download-button');
+    const thankYouNote = document.getElementById('thank-you-note');
+  
+    downloadButton.addEventListener('click', () => {
+      // Change the window location to the PDF file URL
+      window.location.href = 'My CV.pdf';
+  
+      // Display the "Thank you" message
+      thankYouNote.style.display = 'block';
+    });
   </script>
 </body>
 </html>
