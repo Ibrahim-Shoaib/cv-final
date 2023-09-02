@@ -67,6 +67,25 @@
       text-align: center;
       margin-top: 20px;
     }
+    /* CSS for falling animation */
+    .fall {
+      animation-name: fallAnimation;
+      animation-duration: 2s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+    
+    @keyframes fallAnimation {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh); /* Move the text to the bottom of the viewport */
+        opacity: 0; /* Fade out the text */
+      }
+    }
+
   </style>
   <link rel="icon" type="image/png" href="Ibrahim Image.png" sizes="16x16">
 </head>
@@ -213,6 +232,8 @@
   </a>
   <p id="thank-you-note" style="display: none;">Thank you for considering my CV. It has been downloaded.</p>
 
+  <button id="destroy-button">Destroy CV</button>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     AOS.init();
@@ -224,6 +245,24 @@
       downloadLink.style.display = 'none';
       thankYouNote.style.display = 'block';
     });
+      const destroyButton = document.getElementById('destroy-button');
+  const sectionsToAnimate = document.querySelectorAll('.section');
+
+  destroyButton.addEventListener('click', () => {
+    // Add the 'fall' class to all sections for the falling animation
+    sectionsToAnimate.forEach((section) => {
+      section.classList.add('fall');
+    });
+
+    // Hide the button after clicking
+    destroyButton.style.display = 'none';
+
+    // Optional: You can display a message after the animation is complete
+    setTimeout(() => {
+      const thankYouNote = document.getElementById('thank-you-note');
+      thankYouNote.style.display = 'block';
+    }, 2000); // Adjust the timeout based on your animation duration
+  });
   </script>
 </body>
 </html>
